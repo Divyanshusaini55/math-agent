@@ -30,14 +30,6 @@ The **Math Agent** is an Agentic-RAG (Retrieval-Augmented Generation) system des
                    │   Agent Pipeline  │
                    └─────────┬─────────┘
                              │
-        ┌────────────────────┴────────────────────┐
-        │                                         │
-┌───────▼────────┐                        ┌───────▼──────────┐
-│ Knowledge Base │                        │  Web Search (MCP)│
-│ Qdrant + Gemini│                        │ Serper/Tavily/Exa│
-│ embeddings     │                        │ fallback         │
-└────────────────┘                        └──────────────────┘
-
       ┌────────────────────────────────────────────────┐
       │  Guardrails (input validation & SymPy check)   │
       └────────────────────────────────────────────────┘
@@ -46,39 +38,7 @@ The **Math Agent** is an Agentic-RAG (Retrieval-Augmented Generation) system des
       │ Human-in-the-loop feedback (SQLite + KB update)│
       └────────────────────────────────────────────────┘
 
-┌─────────────────────────────┐
-│          Frontend           │
-│        (React + Vite)       │
-└───────────────┬─────────────┘
-                │
-                ▼
-┌─────────────────────────────┐
-│           Backend           │
-│         (FastAPI API)       │
-└───────────────┬─────────────┘
-                │
-        ┌───────┴────────┐
-        │  Agent Pipeline │
-        └───────┬────────┘
-                │
- ┌──────────────┴──────────────┐
- │                              │
- │                              │
- │                              │
- └──────────────┬───────────────┘
-                │
-     ┌──────────┴───────────┐    ┌──────────┴───────────┐
-     │    Knowledge Base     │    │     Web Search (MCP)  │
-     │ Qdrant + Gemini (emb) │    │ Serper/Tavily/Exa     │
-     │      + fallback       │    │       fallback        │
-     └───────────────────────┘    └───────────────────────┘
 
-┌───────────────────────────────────────────────────────────┐
-│   Guardrails (input validation & SymPy check)              │
-└───────────────────────────────────────────────────────────┘
-┌───────────────────────────────────────────────────────────┐
-│ Human‑in‑the‑loop feedback (SQLite + KB update)            │
-└───────────────────────────────────────────────────────────┘
 
 
 ### System Diagram
